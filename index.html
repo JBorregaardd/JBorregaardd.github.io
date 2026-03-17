@@ -1,42 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SF Crime Visualizations</title>
     <style>
+        :root {
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --primary: #1d3557;
+            --accent: #457b9d;
+            --accent-light: #a8dadc;
+            --text: #243447;
+            --muted: #5c6773;
+            --border: #d9e2ec;
+            --shadow: 0 10px 30px rgba(29, 53, 87, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            max-width: 1000px;
-            margin: 40px auto;
+            background: linear-gradient(180deg, #eef4f9 0%, #f8fbfd 100%);
+            color: var(--text);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 15px;
+            font-size: 2.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            margin: 0 auto;
+            max-width: 750px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 60px;
             padding: 0 20px;
         }
 
-        iframe {
-            border: 1px solid #ccc;
-            margin-top: 15px;
-            margin-bottom: 40px;
+        .viz-card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
-        h2 {
-            margin-top: 40px;
+        .viz-card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .viz-card p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 12px;
+            background: #f0f4f8;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+            padding: 10px 20px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 55px 20px 45px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .viz-card {
+                padding: 20px;
+            }
+
+            iframe {
+                height: 450px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>San Francisco Crime Data</h1>
-    <p>This page contains interactive data visualizations of crime patterns in San Francisco.</p>
+    <header class="hero">
+        <h1>San Francisco Crime Visualizations</h1>
+        <p>
+            Explore interactive visualizations of crime patterns in San Francisco,
+            including hourly trends and the long-term geographic evolution of prostitution cases.
+        </p>
+    </header>
 
-    <h2>Crime by Hour</h2>
-    <iframe 
-        src="crime_hourly_interactive.html" 
-        width="100%" 
-        height="600">
-    </iframe>
+    <main class="container">
+        <section class="viz-card">
+            <h2>Crime by Hour</h2>
+            <p>
+                This interactive visualization shows how crime incidents vary throughout the day,
+                helping reveal hourly patterns and peaks in reported activity.
+            </p>
+            <iframe src="crime_hourly_interactive.html"></iframe>
+        </section>
 
-    <h2>Heatmap showing evolution of prostitution cases in San Francisco from 2003 to 2025</h2>
-    <iframe 
-        src="sf_crime_heatmap.html" 
-        width="100%" 
-        height="600">
-    </iframe>
+        <section class="viz-card">
+            <h2>Heatmap of Prostitution Cases in San Francisco (2003–2025)</h2>
+            <p>
+                This heatmap illustrates how prostitution-related cases have evolved across the city over time,
+                providing a spatial view of changes from 2003 to 2025.
+            </p>
+            <iframe src="sf_crime_heatmap.html"></iframe>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Built as an interactive data visualization page for San Francisco crime analysis.
+    </footer>
 </body>
 </html>
