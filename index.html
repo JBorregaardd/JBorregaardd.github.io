@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Data Viz Site</title>
+    <title>SF Crime Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        iframe {
+            border: 1px solid #ccc;
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>This site will soon contain interactive data visualizations about crime in San Francisco.</p>
+    <h1>San Francisco Crime Data</h1>
+    <p>This page contains interactive data visualizations of crime patterns in San Francisco.</p>
 
+    <h2>Crime by Hour</h2>
     <iframe 
         src="crime_hourly_interactive.html" 
         width="100%" 
-        height="600" 
-        frameborder="0">
+        height="600">
+    </iframe>
+
+    <h2>Crime Heatmap</h2>
+    <iframe 
+        src="sf_crime_heatmap.html" 
+        width="100%" 
+        height="600">
     </iframe>
 </body>
 </html>
